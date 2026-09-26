@@ -1,45 +1,25 @@
 /* =====================================================
    KETAN SUSU LENA
-   ANIMATED WEBSITE JAVASCRIPT
+   JAVASCRIPT
 ===================================================== */
 
 
 /* =====================================================
-   DATA KERANJANG
+   KERANJANG
 ===================================================== */
 
 let keranjang = [];
 
 
-/* =====================================================
-   FORMAT RUPIAH
-===================================================== */
-
-function formatRupiah(angka) {
-
-    return new Intl.NumberFormat("id-ID", {
-        style: "currency",
-        currency: "IDR",
-        maximumFractionDigits: 0
-    }).format(angka);
-
-}
-
-
-/* =====================================================
-   TAMBAH KERANJANG
-===================================================== */
-
 function tambahKeranjang(nama, harga) {
 
-    const item = keranjang.find(
-        produk => produk.nama === nama
+    const produkAda = keranjang.find(
+        item => item.nama === nama
     );
 
+    if (produkAda) {
 
-    if (item) {
-
-        item.jumlah += 1;
+        produkAda.jumlah++;
 
     } else {
 
@@ -51,228 +31,133 @@ function tambahKeranjang(nama, harga) {
 
     }
 
-
     updateKeranjang();
 
-
-    /* animasi tombol cart */
-
-    const cartButton =
-        document.querySelector(".cart-btn");
-
-    if (cartButton) {
-
-        cartButton.classList.remove("cart-bounce");
-
-        void cartButton.offsetWidth;
-
-        cartButton.classList.add("cart-bounce");
-
-    }
-
-
-    /* efek notifikasi */
-
-    tampilkanToast(
-        `${nama} ditambahkan ke keranjang 💗`
+    tampilkanNotifikasi(
+        "🛍️ " + nama + " ditambahkan!"
     );
-
 }
 
-
-/* =====================================================
-   UPDATE KERANJANG
-===================================================== */
 
 function updateKeranjang() {
 
-    const badge =
-        document.getElementById("cartBadge");
+    const cartCount =
+        document.getElementById("cartCount");
 
-    const totalJumlah =
-        keranjang.reduce(
-            (total, item) =>
-                total + item.jumlah,
-            0
-        );
+    let jumlah = 0;
 
+    keranjang.forEach(item => {
+        jumlah += item.jumlah;
+    });
 
-    if (badge) {
-
-        badge.textContent = totalJumlah;
-
-    }
+    cartCount.textContent = jumlah;
 
 
-    tampilkanKeranjang();
-
-}
-
-
-/* =====================================================
-   TAMPILKAN KERANJANG
-===================================================== */
-
-function tampilkanKeranjang() {
-
-    const container =
+    const cartItems =
         document.getElementById("cartItems");
-
-    const totalElement =
-        document.getElementById("cartTotal");
-
-
-    if (!container) return;
 
 
     if (keranjang.length === 0) {
 
-        container.innerHTML = `
+        cartItems.innerHTML = `
 
-            <div class="empty-cart">
+            <div style="text-align:center;padding:40px 10px;">
 
-                🛒
+                <div style="font-size:50px;">
+                    🛍️
+                </div>
 
-                <p>
+                <h5>
                     Keranjang masih kosong
+                </h5>
+
+                <p style="color:#888;">
+                    Yuk pilih menu favorit kamu!
                 </p>
 
             </div>
 
         `;
 
-        if (totalElement) {
-            totalElement.textContent = "Rp0";
-        }
+        document.getElementById("cartTotal")
+            .textContent = "Rp0";
 
         return;
-
     }
 
 
+    let html = "";
     let total = 0;
 
 
-    container.innerHTML = keranjang.map(
-        (item, index) => {
+    keranjang.forEach((item, index) => {
 
-            const subtotal =
-                item.harga * item.jumlah;
+        const subtotal =
+            item.harga * item.jumlah;
 
-            total += subtotal;
-
-
-            return `
-
-                <div
-                    class="cart-item"
-                    style="
-                    display:flex;
-                    align-items:center;
-                    justify-content:space-between;
-                    gap:12px;
-                    padding:12px 0;
-                    border-bottom:1px solid #f5dbe7;
-                    "
-                >
-
-                    <div>
-
-                        <strong
-                            style="
-                            font-size:13px;
-                            color:#54253f;
-                            "
-                        >
-                            ${item.nama}
-                        </strong>
-
-                        <div
-                            style="
-                            color:#f52f87;
-                            font-size:11px;
-                            margin-top:3px;
-                            "
-                        >
-                            ${formatRupiah(item.harga)}
-                        </div>
-
-                    </div>
+        total += subtotal;
 
 
-                    <div
-                        style="
-                        display:flex;
-                        align-items:center;
-                        gap:7px;
-                        "
-                    >
+        html += `
 
-                        <button
-                            onclick="ubahJumlah(${index}, -1)"
-                            style="
-                            width:28px;
-                            height:28px;
-                            border:none;
-                            border-radius:50%;
-                            background:#ffe2ee;
-                            color:#f52f87;
-                            "
-                        >
-                            −
-                        </button>
+            <div class="cart-item">
 
+                <div class="cart-item-info">
 
-                        <b>
-                            ${item.jumlah}
-                        </b>
+                    <strong>
+                        ${item.nama}
+                    </strong>
 
-
-                        <button
-                            onclick="ubahJumlah(${index}, 1)"
-                            style="
-                            width:28px;
-                            height:28px;
-                            border:none;
-                            border-radius:50%;
-                            background:#f52f87;
-                            color:white;
-                            "
-                        >
-                            +
-                        </button>
-
-                    </div>
+                    <small>
+                        ${formatRupiah(item.harga)}
+                    </small>
 
                 </div>
 
-            `;
 
-        }
-    ).join("");
+                <div class="qty-control">
+
+                    <button onclick="kurangiProduk(${index})">
+                        -
+                    </button>
+
+                    <strong>
+                        ${item.jumlah}
+                    </strong>
+
+                    <button onclick="tambahJumlah(${index})">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
 
 
-    if (totalElement) {
+    cartItems.innerHTML = html;
 
-        totalElement.textContent =
-            formatRupiah(total);
-
-    }
+    document.getElementById("cartTotal")
+        .textContent = formatRupiah(total);
 
 }
 
 
-/* =====================================================
-   UBAH JUMLAH
-===================================================== */
+function tambahJumlah(index) {
 
-function ubahJumlah(index, perubahan) {
+    keranjang[index].jumlah++;
 
-    if (!keranjang[index]) return;
+    updateKeranjang();
+
+}
 
 
-    keranjang[index].jumlah += perubahan;
+function kurangiProduk(index) {
 
+    keranjang[index].jumlah--;
 
     if (keranjang[index].jumlah <= 0) {
 
@@ -280,34 +165,70 @@ function ubahJumlah(index, perubahan) {
 
     }
 
+    updateKeranjang();
+
+}
+
+
+function bukaKeranjang() {
+
+    updateKeranjang();
+
+    const modalElement =
+        document.getElementById("cartModal");
+
+    const modal =
+        new bootstrap.Modal(modalElement);
+
+    modal.show();
+
+}
+
+
+function kosongkanKeranjang() {
+
+    keranjang = [];
 
     updateKeranjang();
 
 }
 
 
+function formatRupiah(angka) {
+
+    return new Intl.NumberFormat(
+        "id-ID",
+        {
+            style: "currency",
+            currency: "IDR",
+            maximumFractionDigits: 0
+        }
+    ).format(angka);
+
+}
+
+
 /* =====================================================
-   CHECKOUT WHATSAPP
+   WHATSAPP
 ===================================================== */
 
 function checkoutWhatsApp() {
 
     if (keranjang.length === 0) {
 
-        tampilkanToast(
-            "Keranjang masih kosong 🛒"
+        tampilkanNotifikasi(
+            "Keranjang masih kosong 😅"
         );
 
         return;
-
     }
 
 
     let pesan =
-        "Halo Ketan Susu Lena! 👋%0A%0A";
+        "Halo Ketan Susu Lena 👋\n\n";
 
     pesan +=
-        "*Saya ingin memesan:*%0A";
+        "Saya ingin memesan:\n";
 
 
     let total = 0;
@@ -322,39 +243,32 @@ function checkoutWhatsApp() {
 
 
         pesan +=
-            `• ${item.nama} x${item.jumlah} = ${formatRupiah(subtotal)}%0A`;
+            `• ${item.nama} x${item.jumlah} = ${formatRupiah(subtotal)}\n`;
 
     });
 
 
     pesan +=
-        `%0A*Total: ${formatRupiah(total)}*%0A%0A`;
+        `\nTotal: ${formatRupiah(total)}\n\n`;
 
     pesan +=
-        "Mohon konfirmasi pesanannya ya. Terima kasih 💗";
+        "Mohon dibantu proses pesanannya ya. Terima kasih 🙏";
 
-
-    /*
-       NOMOR WHATSAPP
-       Sudah disesuaikan dengan nomor
-       yang terlihat pada gambar kamu.
-    */
 
     const nomor =
         "6289673193710";
 
 
-    const url =
-        `https://wa.me/${nomor}?text=${pesan}`;
-
-
-    window.open(url, "_blank");
+    window.open(
+        `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`,
+        "_blank"
+    );
 
 }
 
 
 /* =====================================================
-   SEARCH MENU
+   SEARCH
 ===================================================== */
 
 const searchInput =
@@ -368,7 +282,7 @@ if (searchInput) {
         function () {
 
             const keyword =
-                this.value.toLowerCase().trim();
+                this.value.toLowerCase();
 
 
             const menuItems =
@@ -378,22 +292,14 @@ if (searchInput) {
             menuItems.forEach(item => {
 
                 const nama =
-                    item
-                    .getAttribute("data-name")
-                    .toLowerCase();
+                    item.dataset.name.toLowerCase();
 
 
                 if (nama.includes(keyword)) {
 
                     item.style.display = "";
 
-                    setTimeout(() => {
-                        item.classList.add("show-item");
-                    }, 10);
-
                 } else {
-
-                    item.classList.remove("show-item");
 
                     item.style.display = "none";
 
@@ -408,105 +314,15 @@ if (searchInput) {
 
 
 /* =====================================================
-   FILTER MENU
+   NAVBAR
 ===================================================== */
-
-const filterButtons =
-    document.querySelectorAll(".filter-btn");
-
-
-filterButtons.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        function () {
-
-            filterButtons.forEach(btn => {
-                btn.classList.remove("active");
-            });
-
-
-            this.classList.add("active");
-
-
-            const filter =
-                this.getAttribute("data-filter");
-
-
-            const menuItems =
-                document.querySelectorAll(".menu-item");
-
-
-            menuItems.forEach(item => {
-
-                const category =
-                    item.getAttribute(
-                        "data-category"
-                    );
-
-
-                if (
-                    filter === "all" ||
-                    category.includes(filter)
-                ) {
-
-                    item.style.display = "";
-
-                    item.classList.remove(
-                        "show-item"
-                    );
-
-
-                    setTimeout(() => {
-
-                        item.classList.add(
-                            "show-item"
-                        );
-
-                    }, 30);
-
-                } else {
-
-                    item.style.display = "none";
-
-                }
-
-            });
-
-
-            /* scroll sedikit agar terasa smooth */
-
-            const menuSection =
-                document.getElementById("menu");
-
-            if (menuSection) {
-
-                menuSection.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }
-
-        }
-    );
-
-});
-
-
-/* =====================================================
-   NAVBAR SAAT SCROLL
-===================================================== */
-
-const navbar =
-    document.querySelector(".navbar");
-
 
 window.addEventListener(
     "scroll",
     function () {
 
-        if (!navbar) return;
+        const navbar =
+            document.getElementById("navbar");
 
 
         if (window.scrollY > 50) {
@@ -519,46 +335,42 @@ window.addEventListener(
 
         }
 
-    },
-    {
-        passive: true
     }
 );
 
 
 /* =====================================================
-   ANIMASI SAAT SCROLL
+   SCROLL REVEAL
 ===================================================== */
 
 const observer =
     new IntersectionObserver(
-        entries => {
+
+        function (entries) {
 
             entries.forEach(entry => {
 
                 if (entry.isIntersecting) {
 
-                    entry.target.classList.add(
-                        "show"
-                    );
+                    entry.target.classList.add("active");
 
-                    observer.unobserve(
-                        entry.target
-                    );
+                    observer.unobserve(entry.target);
 
                 }
 
             });
 
         },
+
         {
             threshold: 0.12
         }
+
     );
 
 
 document
-    .querySelectorAll(".animate-on-scroll")
+    .querySelectorAll(".reveal")
     .forEach(element => {
 
         observer.observe(element);
@@ -567,314 +379,192 @@ document
 
 
 /* =====================================================
-   ANIMASI TOPPING CARD
+   HERO PARALLAX
 ===================================================== */
-
-const toppingCards =
-    document.querySelectorAll(
-        ".topping-card"
-    );
-
-
-toppingCards.forEach(
-    (card, index) => {
-
-        card.style.transitionDelay =
-            `${index * 0.05}s`;
-
-    }
-);
-
-
-/* =====================================================
-   EFEK PARALLAX HERO
-===================================================== */
-
-const heroProduct =
-    document.querySelector(".hero-product");
-
-
-window.addEventListener(
-    "mousemove",
-    function (event) {
-
-        if (!heroProduct) return;
-
-
-        /*
-           Jangan aktifkan efek berat
-           pada layar kecil.
-        */
-
-        if (window.innerWidth < 992) return;
-
-
-        const x =
-            (window.innerWidth / 2 - event.clientX)
-            / 60;
-
-
-        const y =
-            (window.innerHeight / 2 - event.clientY)
-            / 60;
-
-
-        heroProduct.style.transform =
-            `translate(${x}px, ${y}px)`;
-
-    },
-    {
-        passive: true
-    }
-);
-
-
-/* =====================================================
-   RESET PARALLAX
-===================================================== */
-
-window.addEventListener(
-    "mouseleave",
-    function () {
-
-        if (!heroProduct) return;
-
-        heroProduct.style.transform =
-            "translate(0,0)";
-
-    }
-);
-
-
-/* =====================================================
-   TOAST NOTIFICATION
-===================================================== */
-
-function tampilkanToast(pesan) {
-
-    let toast =
-        document.getElementById(
-            "customToast"
-        );
-
-
-    if (!toast) {
-
-        toast =
-            document.createElement("div");
-
-        toast.id =
-            "customToast";
-
-
-        toast.style.position =
-            "fixed";
-
-        toast.style.bottom =
-            "25px";
-
-        toast.style.right =
-            "25px";
-
-        toast.style.zIndex =
-            "9999";
-
-        toast.style.maxWidth =
-            "320px";
-
-        toast.style.padding =
-            "13px 18px";
-
-        toast.style.borderRadius =
-            "50px";
-
-        toast.style.background =
-            "linear-gradient(135deg,#f52f87,#ff78b0)";
-
-        toast.style.color =
-            "white";
-
-        toast.style.fontSize =
-            "12px";
-
-        toast.style.fontWeight =
-            "600";
-
-        toast.style.boxShadow =
-            "0 10px 30px rgba(245,47,135,.3)";
-
-        toast.style.transform =
-            "translateY(30px)";
-
-        toast.style.opacity =
-            "0";
-
-        toast.style.transition =
-            "all .4s ease";
-
-
-        document.body.appendChild(toast);
-
-    }
-
-
-    toast.textContent =
-        pesan;
-
-
-    requestAnimationFrame(() => {
-
-        toast.style.transform =
-            "translateY(0)";
-
-        toast.style.opacity =
-            "1";
-
-    });
-
-
-    clearTimeout(
-        toast.hideTimer
-    );
-
-
-    toast.hideTimer =
-        setTimeout(() => {
-
-            toast.style.transform =
-                "translateY(30px)";
-
-            toast.style.opacity =
-                "0";
-
-        }, 2500);
-
-}
-
-
-/* =====================================================
-   SMOOTH NAVBAR LINK
-===================================================== */
-
-document
-    .querySelectorAll(".nav-link")
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            function () {
-
-                document
-                    .querySelectorAll(".nav-link")
-                    .forEach(item => {
-                        item.classList.remove(
-                            "active"
-                        );
-                    });
-
-
-                this.classList.add(
-                    "active"
-                );
-
-            }
-        );
-
-    });
-
-
-/* =====================================================
-   ACTIVE NAVBAR BERDASARKAN SECTION
-===================================================== */
-
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
-
 
 window.addEventListener(
     "scroll",
     function () {
 
-        let current = "";
+        const heroImage =
+            document.querySelector(".hero-image");
+
+        if (!heroImage) return;
+
+        const scroll =
+            window.scrollY;
 
 
-        sections.forEach(section => {
+        heroImage.style.transform =
+            `translateY(${scroll * 0.08}px)`;
 
-            const sectionTop =
-                section.offsetTop - 150;
-
-
-            if (
-                window.scrollY >=
-                sectionTop
-            ) {
-
-                current =
-                    section.getAttribute(
-                        "id"
-                    );
-
-            }
-
-        });
-
-
-        document
-            .querySelectorAll(".nav-link")
-            .forEach(link => {
-
-                link.classList.remove(
-                    "active"
-                );
-
-
-                if (
-                    link.getAttribute(
-                        "href"
-                    ) === `#${current}`
-                ) {
-
-                    link.classList.add(
-                        "active"
-                    );
-
-                }
-
-            });
-
-    },
-    {
-        passive: true
     }
 );
 
 
 /* =====================================================
-   TYPING EFFECT UNTUK HERO
+   RIPPLE
 ===================================================== */
 
-const heroDescription =
-    document.querySelector(
-        ".hero p"
-    );
+document.addEventListener(
+    "click",
+    function (e) {
+
+        const button =
+            e.target.closest(
+                ".btn-main, .btn-wa, .product-bottom button, .cart-button, .btn-add-topping, .btn-add-extra"
+            );
 
 
-if (heroDescription) {
+        if (!button) return;
 
-    heroDescription.style.opacity =
-        "1";
+
+        const ripple =
+            document.createElement("span");
+
+
+        ripple.classList.add("ripple");
+
+
+        button.appendChild(ripple);
+
+
+        setTimeout(
+            () => ripple.remove(),
+            600
+        );
+
+    }
+);
+
+
+/* =====================================================
+   NOTIFIKASI
+===================================================== */
+
+function tampilkanNotifikasi(teks) {
+
+    const oldToast =
+        document.querySelector(".custom-toast");
+
+
+    if (oldToast) {
+        oldToast.remove();
+    }
+
+
+    const toast =
+        document.createElement("div");
+
+
+    toast.className =
+        "custom-toast";
+
+
+    toast.innerHTML = `
+
+        <i class="bi bi-check-circle-fill"></i>
+
+        <span>
+            ${teks}
+        </span>
+
+    `;
+
+
+    document.body.appendChild(toast);
+
+
+    setTimeout(() => {
+
+        toast.classList.add("show");
+
+    }, 50);
+
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+        setTimeout(
+            () => toast.remove(),
+            400
+        );
+
+    }, 2500);
 
 }
 
 
 /* =====================================================
-   INITIAL
+   PRODUCT TILT
 ===================================================== */
 
-updateKeranjang();
+document.addEventListener(
+    "mousemove",
+    function (e) {
 
-console.log(
-    "Ketan Susu Lena Website Loaded 💗"
+        const cards =
+            document.querySelectorAll(".product-card");
+
+
+        cards.forEach(card => {
+
+            const rect =
+                card.getBoundingClientRect();
+
+
+            if (
+                e.clientX >= rect.left &&
+                e.clientX <= rect.right &&
+                e.clientY >= rect.top &&
+                e.clientY <= rect.bottom
+            ) {
+
+                const x =
+                    (e.clientX - rect.left) /
+                    rect.width;
+
+                const y =
+                    (e.clientY - rect.top) /
+                    rect.height;
+
+
+                const rotateY =
+                    (x - .5) * 5;
+
+                const rotateX =
+                    (y - .5) * -5;
+
+
+                card.style.transform =
+                    `perspective(800px)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)
+                     translateY(-10px)
+                     scale(1.02)`;
+
+            } else {
+
+                card.style.transform = "";
+
+            }
+
+        });
+
+    }
+);
+
+
+/* =====================================================
+   LOAD
+===================================================== */
+
+window.addEventListener(
+    "load",
+    function () {
+
+        document.body.classList.add("loaded");
+
+    }
 );

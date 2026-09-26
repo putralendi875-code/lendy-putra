@@ -1,175 +1,101 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ketan Susu Lena | Ketan Pulen & Topping Favorit</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <title>Ketan Susu Lena</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- GOOGLE FONT -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-
-    <!-- BOOTSTRAP -->
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
-
-
-    <!-- BOOTSTRAP ICON -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
-
-
-    <!-- CSS KITA -->
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      NAVBAR
 ===================================================== -->
 
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
 
     <div class="container">
 
-        <a
-            class="navbar-brand"
-            href="#home"
-        >
+        <a class="navbar-brand brand-logo" href="#home">
 
-            🍚 Ketan Susu Lena
+            <img src="images/logo-ketan-susu-lena.jpg"
+                 alt="Logo Ketan Susu Lena">
+
+            <div class="brand-text">
+                <span class="logo-pink">KETAN</span>
+                <span class="logo-pink">SUSU LENA</span>
+            </div>
 
         </a>
 
 
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-        >
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
 
             <i class="bi bi-list"></i>
 
         </button>
 
 
-        <div
-            class="collapse navbar-collapse"
-            id="navbarNav"
-        >
+        <div class="collapse navbar-collapse" id="navbarNav">
 
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
 
                 <li class="nav-item">
-                    <a
-                        class="nav-link active"
-                        href="#home"
-                    >
-                        Home
-                    </a>
+                    <a class="nav-link" href="#home">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        href="#menu"
-                    >
-                        Menu
-                    </a>
+                    <a class="nav-link" href="#menu">Menu</a>
                 </li>
 
                 <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        href="#topping"
-                    >
-                        Topping
-                    </a>
+                    <a class="nav-link" href="#topping">Topping</a>
                 </li>
 
                 <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        href="#promo"
-                    >
-                        Promo
-                    </a>
+                    <a class="nav-link" href="#testimoni">Testimoni</a>
                 </li>
 
                 <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        href="#tentang"
-                    >
-                        Tentang
+                    <a class="nav-link" href="#tentang">Tentang Kami</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#lokasi">
+                        <i class="bi bi-geo-alt-fill"></i> Lokasi
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        href="#kontak"
-                    >
-                        Kontak
-                    </a>
+                <li class="nav-item ms-lg-3">
+
+                    <button class="cart-button"
+                            onclick="bukaKeranjang()">
+
+                        <i class="bi bi-bag-heart-fill"></i>
+
+                        <span>Keranjang</span>
+
+                        <span class="cart-count"
+                              id="cartCount">0</span>
+
+                    </button>
+
                 </li>
 
             </ul>
-
-
-            <button
-                class="cart-btn"
-                data-bs-toggle="modal"
-                data-bs-target="#cartModal"
-            >
-
-                <i class="bi bi-cart3"></i>
-
-                Keranjang
-
-                <span id="cartBadge">
-                    0
-                </span>
-
-            </button>
 
         </div>
 
@@ -178,174 +104,79 @@
 </nav>
 
 
-
 <!-- =====================================================
      HERO
 ===================================================== -->
 
-<section
-    id="home"
-    class="hero"
->
+<section class="hero" id="home">
+
+    <div class="hero-decoration decor-1">♡</div>
+    <div class="hero-decoration decor-2">✦</div>
+    <div class="hero-decoration decor-3">♡</div>
+    <div class="hero-decoration decor-4">✦</div>
 
     <div class="container">
 
         <div class="row align-items-center">
 
+            <div class="col-lg-6 hero-text">
 
-            <!-- TEXT -->
+                <div class="hero-badge">
+                    ✨ KETAN SUSU LENA ✨
+                </div>
 
-            <div class="col-lg-6">
+                <h1>
+                    Ketan Susu Lena
+                    <span>"Ngga Semua Yang Manis Itu Kenangan"</span>
+                </h1>
 
-                <div class="hero-text">
+                <p>
+                    Nikmati ketan susu lembut, gurih dan pulen
+                    dengan berbagai pilihan topping favorit kamu.
+                </p>
 
-                    <span class="small-label">
+                <div class="hero-buttons">
 
-                        💗 SELAMAT DATANG DI
+                    <a href="#menu"
+                       class="btn-main">
 
-                    </span>
+                        <i class="bi bi-stars"></i>
+                        Lihat Menu
 
-
-                    <h1>
-
-                        Ketan Susu
-
-                        <span>Lena</span>
-
-                    </h1>
-
-
-                    <p>
-
-                        Ketan pulen, susu gurih,
-                        dan berbagai pilihan topping
-                        favorit yang bikin setiap suapan
-                        makin nagih!
-
-                    </p>
+                    </a>
 
 
-                    <div class="hero-buttons">
+                    <a href="https://wa.me/6289673193710"
+                       target="_blank"
+                       class="btn-wa">
 
-                        <a
-                            href="#menu"
-                            class="btn-main"
-                        >
+                        <i class="bi bi-whatsapp"></i>
+                        Pesan Sekarang
 
-                            <i class="bi bi-cup-hot"></i>
-
-                            Lihat Menu
-
-                        </a>
-
-
-                        <a
-                            href="https://wa.me/6289673193710"
-                            target="_blank"
-                            class="btn-outline-pink"
-                        >
-
-                            <i class="bi bi-whatsapp"></i>
-
-                            Pesan Sekarang
-
-                        </a>
-
-                    </div>
-
-
-                    <div class="hero-features">
-
-                        <div>
-
-                            ❤️ Ketan Pulen
-
-                        </div>
-
-                        <div>
-
-                            🥛 Susu Gurih
-
-                        </div>
-
-                        <div>
-
-                            ✨ Banyak Topping
-
-                        </div>
-
-                        <div>
-
-                            ⚡ Mudah Dipesan
-
-                        </div>
-
-                    </div>
+                    </a>
 
                 </div>
 
             </div>
 
 
-
-            <!-- PRODUK -->
-
             <div class="col-lg-6">
 
-                <div class="hero-product">
+                <div class="hero-image-wrapper">
 
+                    <div class="hero-circle"></div>
 
-                    <div class="product-glow"></div>
+                    <img src="images/choco-crunchy.jpg"
+                         class="hero-image"
+                         alt="Ketan Susu Lena">
 
-
-                    <div class="heart heart-1">
-                        💗
+                    <div class="floating-card card-price">
+                        <i class="bi bi-heart-fill"></i>
+                        Best Seller
                     </div>
 
-
-                    <div class="heart heart-2">
-                        💕
-                    </div>
-
-
-                    <div class="product-bowl">
-
-                        <div class="rice">
-                            🍚
-                        </div>
-
-                        <div class="topping-food">
-                            🥭
-                        </div>
-
-                        <div class="milk">
-                            🥛
-                        </div>
-
-
-                        <div class="logo-bowl">
-
-                            KETAN
-
-                            <span>SUSU</span>
-
-                            LENA
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="floating-text">
-
-                        Lezatnya
-
-                        <br>
-
-                        <b>
-                            Bikin Nagih! 💗
-                        </b>
-
+                    <div class="floating-card card-fresh">
+                        ✨ Ketannya Pulen
                     </div>
 
                 </div>
@@ -357,843 +188,908 @@
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
      MENU
 ===================================================== -->
 
-<section
-    id="menu"
-    class="menu-section"
->
+<section class="menu-section" id="menu">
 
     <div class="container">
 
+        <div class="section-title reveal">
 
-        <div class="section-heading">
-
-            <span>
-                MENU KAMI 💗
-            </span>
+            <span>MENU FAVORIT</span>
 
             <h2>
-
                 Pilihan Menu
-
-                <b>Favorit</b>
-
+                <strong>Ketan Susu Lena</strong>
             </h2>
 
             <p>
-
-                Ketan pulen dengan berbagai
-                pilihan topping.
-
+                Pilih topping favoritmu dan nikmati
+                ketan susu yang pulen dan gurih.
             </p>
 
         </div>
 
 
+        <div class="search-box reveal">
 
-        <!-- SEARCH -->
+            <i class="bi bi-search"></i>
 
-        <div class="menu-tools">
-
-            <div class="search-box">
-
-                <i class="bi bi-search"></i>
-
-                <input
-                    type="text"
-                    id="searchMenu"
-                    placeholder="Cari menu..."
-                >
-
-            </div>
-
-
-            <div class="filter-buttons">
-
-                <button
-                    class="filter-btn active"
-                    data-filter="all"
-                >
-                    Semua
-                </button>
-
-                <button
-                    class="filter-btn"
-                    data-filter="original"
-                >
-                    Original
-                </button>
-
-                <button
-                    class="filter-btn"
-                    data-filter="best"
-                >
-                    Best Seller
-                </button>
-
-                <button
-                    class="filter-btn"
-                    data-filter="premium"
-                >
-                    Premium
-                </button>
-
-            </div>
+            <input type="text"
+                   id="searchMenu"
+                   placeholder="Cari menu favorit kamu...">
 
         </div>
 
 
-
-        <!-- MENU GRID -->
-
-        <div class="row g-4">
+        <div class="row g-4" id="menuContainer">
 
 
             <!-- 1 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Coklat Lumer"
-                data-category="best"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Coklat Lumer">
 
-                <div class="product-card">
+                <div class="product-card reveal">
 
-                    <span class="best-badge">
-                        BEST SELLER
-                    </span>
+                    <div class="best-seller">
+                        BEST
+                        <br>
+                        SELLER
+                    </div>
+
+                    <div class="price-badge">
+                        12K
+                    </div>
 
                     <div class="food-image">
-                        🍫
+
+                        <img src="images/coklat-lumer.jpg"
+                             alt="Tansu Coklat Lumer">
+
                     </div>
 
-                    <h5>
-                        Tansu Coklat Lumer
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Coklat Lumer
-                    </small>
+                        <h3>Tansu Coklat Lumer</h3>
 
-                    <div class="price">
-                        Rp12.000
+                        <p>
+                            Ketan + Fla + Coklat Lumer
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp12.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Coklat Lumer',12000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Coklat Lumer',12000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 2 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Keju"
-                data-category="original"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Keju">
 
-                <div class="product-card">
+                <div class="product-card reveal">
+
+                    <div class="price-badge">
+                        12K
+                    </div>
 
                     <div class="food-image">
-                        🧀
+
+                        <img src="images/keju.jpg"
+                             alt="Tansu Keju">
+
                     </div>
 
-                    <h5>
-                        Tansu Keju
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Keju
-                    </small>
+                        <h3>Tansu Keju</h3>
 
-                    <div class="price">
-                        Rp12.000
+                        <p>
+                            Ketan + Fla + Keju
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp12.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Keju',12000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Keju',12000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 3 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Milk"
-                data-category="original"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Milk">
 
-                <div class="product-card">
+                <div class="product-card reveal">
+
+                    <div class="price-badge">
+                        12K
+                    </div>
 
                     <div class="food-image">
-                        🥛
+
+                        <img src="images/milk.jpg"
+                             alt="Tansu Milk">
+
                     </div>
 
-                    <h5>
-                        Tansu Milk
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Milk
-                    </small>
+                        <h3>Tansu Milk</h3>
 
-                    <div class="price">
-                        Rp12.000
+                        <p>
+                            Ketan + Fla + Milk
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp12.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Milk',12000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Milk',12000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 4 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Taro"
-                data-category="premium"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Taro">
 
-                <div class="product-card">
+                <div class="product-card reveal">
+
+                    <div class="price-badge">
+                        12K
+                    </div>
 
                     <div class="food-image">
-                        🍠
+
+                        <img src="images/taro.jpg"
+                             alt="Tansu Taro">
+
                     </div>
 
-                    <h5>
-                        Tansu Taro
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Taro
-                    </small>
+                        <h3>Tansu Taro</h3>
 
-                    <div class="price">
-                        Rp12.000
+                        <p>
+                            Ketan + Fla + Taro
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp12.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Taro',12000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Taro',12000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 5 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Matcha"
-                data-category="premium"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Matcha">
 
-                <div class="product-card">
+                <div class="product-card reveal">
+
+                    <div class="price-badge">
+                        12K
+                    </div>
 
                     <div class="food-image">
-                        🍵
+
+                        <img src="images/matcha.jpg"
+                             alt="Tansu Matcha">
+
                     </div>
 
-                    <h5>
-                        Tansu Matcha
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Matcha
-                    </small>
+                        <h3>Tansu Matcha</h3>
 
-                    <div class="price">
-                        Rp12.000
+                        <p>
+                            Ketan + Fla + Matcha
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp12.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Matcha',12000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Matcha',12000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 6 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Tiramisu"
-                data-category="premium"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Tiramisu">
 
-                <div class="product-card">
+                <div class="product-card reveal">
+
+                    <div class="price-badge">
+                        12K
+                    </div>
 
                     <div class="food-image">
-                        ☕
+
+                        <img src="images/tiramisu.jpg"
+                             alt="Tansu Tiramisu">
+
                     </div>
 
-                    <h5>
-                        Tansu Tiramisu
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Tiramisu
-                    </small>
+                        <h3>Tansu Tiramisu</h3>
 
-                    <div class="price">
-                        Rp12.000
+                        <p>
+                            Ketan + Fla + Tiramisu
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp12.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Tiramisu',12000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Tiramisu',12000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 7 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Seres"
-                data-category="original"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Seres">
 
-                <div class="product-card">
+                <div class="product-card reveal">
+
+                    <div class="price-badge">
+                        10K
+                    </div>
 
                     <div class="food-image">
-                        🍫
+
+                        <img src="images/seres.jpg"
+                             alt="Tansu Seres">
+
                     </div>
 
-                    <h5>
-                        Tansu Seres
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Seres
-                    </small>
+                        <h3>Tansu Seres</h3>
 
-                    <div class="price">
-                        Rp10.000
+                        <p>
+                            Ketan + Fla + Seres
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp10.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Seres',10000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Seres',10000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 8 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Oreo"
-                data-category="best"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Oreo">
 
-                <div class="product-card">
+                <div class="product-card reveal">
 
-                    <span class="best-badge">
-                        BEST SELLER
-                    </span>
+                    <div class="best-seller">
+                        BEST
+                        <br>
+                        SELLER
+                    </div>
+
+                    <div class="price-badge">
+                        13K
+                    </div>
 
                     <div class="food-image">
-                        🍪
+
+                        <img src="images/oreo.jpg"
+                             alt="Tansu Oreo">
+
                     </div>
 
-                    <h5>
-                        Tansu Oreo
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Oreo
-                    </small>
+                        <h3>Tansu Oreo</h3>
 
-                    <div class="price">
-                        Rp13.000
+                        <p>
+                            Ketan + Fla + Oreo
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp13.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Oreo',13000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Oreo',13000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 9 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Strawberry"
-                data-category="best premium"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Strawberry">
 
-                <div class="product-card">
+                <div class="product-card reveal">
 
-                    <span class="best-badge">
-                        BEST SELLER
-                    </span>
+                    <div class="best-seller">
+                        BEST
+                        <br>
+                        SELLER
+                    </div>
+
+                    <div class="price-badge">
+                        17K
+                    </div>
 
                     <div class="food-image">
-                        🍓
+
+                        <img src="images/strawberry.jpg"
+                             alt="Tansu Strawberry">
+
                     </div>
 
-                    <h5>
-                        Tansu Strawberry
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Keju + Strawberry
-                    </small>
+                        <h3>Tansu Strawberry</h3>
 
-                    <div class="price">
-                        Rp17.000
+                        <p>
+                            Ketan + Fla + Keju + Strawberry
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp17.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Strawberry',17000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Strawberry',17000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 10 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Redvelvet"
-                data-category="premium"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Redvelvet">
 
-                <div class="product-card">
+                <div class="product-card reveal">
+
+                    <div class="price-badge">
+                        13K
+                    </div>
 
                     <div class="food-image">
-                        ❤️
+
+                        <img src="images/redvelvet.jpg"
+                             alt="Tansu Redvelvet">
+
                     </div>
 
-                    <h5>
-                        Tansu Redvelvet
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Redvelvet
-                    </small>
+                        <h3>Tansu Redvelvet</h3>
 
-                    <div class="price">
-                        Rp13.000
+                        <p>
+                            Ketan + Fla + Redvelvet
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp13.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Redvelvet',13000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Redvelvet',13000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 11 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Choco Crunchy"
-                data-category="best premium"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Choco Crunchy">
 
-                <div class="product-card">
+                <div class="product-card reveal">
 
-                    <span class="best-badge">
-                        BEST SELLER
-                    </span>
+                    <div class="best-seller">
+                        BEST
+                        <br>
+                        SELLER
+                    </div>
+
+                    <div class="price-badge">
+                        13K
+                    </div>
 
                     <div class="food-image">
-                        🍫
+
+                        <img src="images/choco-crunchy.jpg"
+                             alt="Tansu Choco Crunchy">
+
                     </div>
 
-                    <h5>
-                        Tansu Choco Crunchy
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Choco Crunchy
-                    </small>
+                        <h3>Tansu Choco Crunchy</h3>
 
-                    <div class="price">
-                        Rp13.000
+                        <p>
+                            Ketan + Fla + Choco Crunchy
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp13.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Choco Crunchy',13000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Choco Crunchy',13000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 12 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Matcha Crunchy"
-                data-category="premium"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Matcha Crunchy">
 
-                <div class="product-card">
+                <div class="product-card reveal">
+
+                    <div class="price-badge">
+                        13K
+                    </div>
 
                     <div class="food-image">
-                        🍵
+
+                        <img src="images/matcha-crunchy.jpg"
+                             alt="Tansu Matcha Crunchy">
+
                     </div>
 
-                    <h5>
-                        Tansu Matcha Crunchy
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Matcha Crunchy
-                    </small>
+                        <h3>Tansu Matcha Crunchy</h3>
 
-                    <div class="price">
-                        Rp13.000
+                        <p>
+                            Ketan + Fla + Matcha Crunchy
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp13.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Matcha Crunchy',13000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Matcha Crunchy',13000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 13 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Milk Crunchy"
-                data-category="premium"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Milk Crunchy">
 
-                <div class="product-card">
+                <div class="product-card reveal">
+
+                    <div class="price-badge">
+                        13K
+                    </div>
 
                     <div class="food-image">
-                        🥛
+
+                        <img src="images/milk-crunchy.jpg"
+                             alt="Tansu Milk Crunchy">
+
                     </div>
 
-                    <h5>
-                        Tansu Milk Crunchy
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Milk Crunchy
-                    </small>
+                        <h3>Tansu Milk Crunchy</h3>
 
-                    <div class="price">
-                        Rp13.000
+                        <p>
+                            Ketan + Fla + Milk Crunchy
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp13.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Milk Crunchy',13000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Milk Crunchy',13000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
-
 
 
             <!-- 14 -->
 
-            <div
-                class="col-6 col-md-4 col-lg-3 menu-item"
-                data-name="Tansu Manggo Signature"
-                data-category="best premium"
-            >
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Manggo Signature">
 
-                <div class="product-card">
+                <div class="product-card reveal">
 
-                    <span class="best-badge">
-                        BEST SELLER
-                    </span>
+                    <div class="best-seller">
+                        BEST
+                        <br>
+                        SELLER
+                    </div>
+
+                    <div class="price-badge">
+                        18K
+                    </div>
 
                     <div class="food-image">
-                        🥭
+
+                        <img src="images/manggo.jpg"
+                             alt="Tansu Manggo Signature">
+
                     </div>
 
-                    <h5>
-                        Tansu Manggo Signature
-                    </h5>
+                    <div class="product-content">
 
-                    <small>
-                        Ketan + Fla + Keju + Manggo
-                    </small>
+                        <h3>Tansu Manggo Signature</h3>
 
-                    <div class="price">
-                        Rp18.000
+                        <p>
+                            Ketan + Fla + Keju + Manggo
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp18.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Manggo Signature',18000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
                     </div>
-
-                    <button
-                        onclick="tambahKeranjang('Tansu Manggo Signature',18000)"
-                    >
-
-                        <i class="bi bi-cart-plus"></i>
-
-                        Tambah
-
-                    </button>
 
                 </div>
 
             </div>
 
+
+            <!-- 15 -->
+
+            <div class="col-lg-4 col-md-6 menu-item"
+                 data-name="Tansu Original">
+
+                <div class="product-card reveal">
+
+                    <div class="price-badge">
+                        10K
+                    </div>
+
+                    <div class="food-image">
+
+                        <img src="images/original.jpg"
+                             alt="Tansu Original">
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <h3>Tansu Original</h3>
+
+                        <p>
+                            Ketan + Fla + Susu
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>Rp10.000</strong>
+
+                            <button onclick="tambahKeranjang('Tansu Original',10000)">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
      TOPPING
 ===================================================== -->
 
-<section
-    id="topping"
-    class="topping-section"
->
+<section class="topping-section" id="topping">
 
     <div class="container">
 
-        <div class="section-heading">
+        <div class="section-title reveal">
 
-            <span>
-                EXTRA TOPPING
-            </span>
+            <span>EXTRA TOPPING</span>
 
             <h2>
-
-                Pilih Topping
-
-                <b>Favoritmu</b>
-
+                Tambahkan
+                <strong>Topping Favorit</strong>
             </h2>
 
-        </div>
-
-
-        <div class="row g-3">
-
-
-            <div class="col-6 col-md-3">
-
-                <div class="topping-card">
-
-                    🍪
-
-                    <b>
-                        Oreo
-                    </b>
-
-                    <small>
-                        +Rp3.000
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-6 col-md-3">
-
-                <div class="topping-card">
-
-                    🧀
-
-                    <b>
-                        Keju
-                    </b>
-
-                    <small>
-                        +Rp3.000
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-6 col-md-3">
-
-                <div class="topping-card">
-
-                    🍫
-
-                    <b>
-                        Seres
-                    </b>
-
-                    <small>
-                        +Rp2.000
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-6 col-md-3">
-
-                <div class="topping-card">
-
-                    🍓
-
-                    <b>
-                        Strawberry
-                    </b>
-
-                    <small>
-                        +Rp4.000
-                    </small>
-
-                </div>
-
-            </div>
-
+            <p>
+                Klik tombol keranjang untuk menambahkan
+                topping ke pesanan kamu.
+            </p>
 
         </div>
 
 
-        <div class="extra-ketan">
+        <div class="row g-4 justify-content-center">
 
-            <i class="bi bi-plus-circle"></i>
+
+            <!-- OREO -->
+
+            <div class="col-lg-2 col-md-4 col-6">
+
+                <div class="topping-card reveal">
+
+                    <div class="topping-icon">🍪</div>
+
+                    <h4>Oreo</h4>
+
+                    <span>Rp3.000</span>
+
+                    <button class="btn-add-topping"
+                            onclick="tambahKeranjang('Extra Topping Oreo',3000)">
+
+                        <i class="bi bi-cart-plus-fill"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- KEJU -->
+
+            <div class="col-lg-2 col-md-4 col-6">
+
+                <div class="topping-card reveal">
+
+                    <div class="topping-icon">🧀</div>
+
+                    <h4>Keju</h4>
+
+                    <span>Rp3.000</span>
+
+                    <button class="btn-add-topping"
+                            onclick="tambahKeranjang('Extra Topping Keju',3000)">
+
+                        <i class="bi bi-cart-plus-fill"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SERES -->
+
+            <div class="col-lg-2 col-md-4 col-6">
+
+                <div class="topping-card reveal">
+
+                    <div class="topping-icon">🍫</div>
+
+                    <h4>Seres</h4>
+
+                    <span>Rp2.000</span>
+
+                    <button class="btn-add-topping"
+                            onclick="tambahKeranjang('Extra Topping Seres',2000)">
+
+                        <i class="bi bi-cart-plus-fill"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- REDVELVET -->
+
+            <div class="col-lg-2 col-md-4 col-6">
+
+                <div class="topping-card reveal">
+
+                    <div class="topping-icon">❤️</div>
+
+                    <h4>Redvelvet</h4>
+
+                    <span>Rp3.000</span>
+
+                    <button class="btn-add-topping"
+                            onclick="tambahKeranjang('Extra Topping Redvelvet',3000)">
+
+                        <i class="bi bi-cart-plus-fill"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- STRAWBERRY -->
+
+            <div class="col-lg-2 col-md-4 col-6">
+
+                <div class="topping-card reveal">
+
+                    <div class="topping-icon">🍓</div>
+
+                    <h4>Strawberry</h4>
+
+                    <span>Rp4.000</span>
+
+                    <button class="btn-add-topping"
+                            onclick="tambahKeranjang('Extra Topping Strawberry',4000)">
+
+                        <i class="bi bi-cart-plus-fill"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXTRA KETAN -->
+
+        <div class="extra-ketan reveal">
 
             <div>
 
-                <b>
-                    Extra Ketan Lena
-                </b>
+                <div class="extra-ketan-info">
 
-                <small>
-                    Tambah ketan lebih banyak
-                    hanya Rp5.000
-                </small>
+                    <i class="bi bi-plus-circle-fill"></i>
+
+                    <div>
+
+                        <strong>Extra Ketan Lena</strong>
+
+                        <small>
+                            Tambah porsi ketan
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <span>Rp5.000</span>
+
+                <button class="btn-add-extra"
+                        onclick="tambahKeranjang('Extra Ketan Lena',5000)">
+
+                    <i class="bi bi-cart-plus-fill"></i>
+
+                </button>
 
             </div>
 
@@ -1204,183 +1100,132 @@
 </section>
 
 
-
 <!-- =====================================================
-     PROMO
+     TESTIMONI
 ===================================================== -->
 
-<section
-    id="promo"
-    class="promo-section"
->
+<section class="testimoni-section" id="testimoni">
 
     <div class="container">
 
-        <div class="promo-box">
+        <div class="section-title reveal">
 
-            <div>
+            <span>TESTIMONI CUSTOMER</span>
 
-                <span>
-                    🥭 SIGNATURE MENU
-                </span>
+            <h2>
+                Kata Mereka Tentang
+                <strong>Ketan Susu Lena</strong>
+            </h2>
 
-                <h2>
-                    Tansu Manggo Signature
-                </h2>
-
-                <p>
-                    Ketan pulen + fla + keju
-                    + manggo yang segar.
-                </p>
-
-                <a
-                    href="#menu"
-                    class="btn-white"
-                >
-                    Lihat Menu
-                </a>
-
-            </div>
-
-
-            <div class="promo-emoji">
-                🥭
-            </div>
+            <p>
+                Testimoni customer Ketan Susu Lena.
+            </p>
 
         </div>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     TENTANG
-===================================================== -->
-
-<section
-    id="tentang"
-    class="about-section"
->
-
-    <div class="container">
 
         <div class="row g-4">
 
 
-            <div class="col-lg-6">
+            <div class="col-lg-4 col-md-6">
 
-                <div class="about-card">
+                <div class="testimonial-card reveal">
 
-                    <span>
-                        TENTANG KAMI
-                    </span>
+                    <div class="testimonial-image">
 
-                    <h2>
-                        Ketan Susu Lena 💗
-                    </h2>
+                        <img src="images/testimoni1.png"
+                             alt="Testimoni Ketan Susu Lena">
 
-                    <p>
+                    </div>
 
-                        Ketan Susu Lena hadir dengan
-                        ketan yang pulen dan gurih,
-                        dipadukan dengan susu serta
-                        berbagai pilihan topping
-                        kekinian.
+                    <div class="testimonial-content">
 
-                    </p>
+                        <div class="stars">
+                            ★★★★★
+                        </div>
 
-                    <p>
+                        <h4>Zulfan </h4>
 
-                        Cocok untuk teman kuliah,
-                        nongkrong, ngemil, ataupun
-                        sekadar memanjakan diri
-                        dengan makanan manis.
+                        <p>
+                            " Terimakasih KEAN SUSU LENA
+                            btw pacar aku udah ngga ngambek lagi nih..."
+                        <p>
+                        
+                        </p>
+                            Terima kasih sudah menikmati
+                            Ketan Susu Lena ❤️
+                        </p>
 
-                    </p>
+                    </div>
 
                 </div>
 
             </div>
 
 
+            <div class="col-lg-4 col-md-6">
 
-            <div
-                class="col-lg-6"
-                id="kontak"
-            >
+                <div class="testimonial-card reveal">
 
-                <div class="about-card">
+                    <div class="testimonial-image">
 
-                    <span>
-                        HUBUNGI KAMI
-                    </span>
+                        <img src="images/testimoni2.png"
+                             alt="Testimoni Ketan Susu Lena">
 
-                    <h2>
-                        Pesan Sekarang 📱
-                    </h2>
+                    </div>
 
+                    <div class="testimonial-content">
 
-                    <div class="contact-list">
-
-
-                        <div>
-
-                            <i class="bi bi-whatsapp"></i>
-
-                            <div>
-
-                                <b>
-                                    WhatsApp
-                                </b>
-
-                                <small>
-                                    0896-7319-3710
-                                </small>
-
-                            </div>
-
+                        <div class="stars">
+                            ★★★★★
                         </div>
 
+                        <h4>BR 1</h4>
 
-                        <div>
+                        <p>
+                            " enakk.. bangett.. ih wajibb cobainnnnn...."
+                        <p>
 
-                            <i class="bi bi-instagram"></i>
+                        <p>
+                            Terima kasih sudah menikmati
+                            Ketan Susu Lena ❤️
+                        </p>
 
-                            <div>
+                    </div>
 
-                                <b>
-                                    Instagram
-                                </b>
+                </div>
 
-                                <small>
-                                    @ketansusu_lena
-                                </small>
+            </div>
 
-                            </div>
 
+            <div class="col-lg-4 col-md-6">
+
+                <div class="testimonial-card reveal">
+
+                    <div class="testimonial-image">
+
+                        <img src="images/testimoni3.png"
+                             alt="Testimoni Ketan Susu Lena">
+
+                    </div>
+
+                    <div class="testimonial-content">
+
+                        <div class="stars">
+                            ★★★★★
                         </div>
 
+                        <h4>Teman Lena</h4>
+                        
+                        <p>
+                            “jujur enak bgt, ketannya pulen terus fla susunya creamy.
+                            toppingnya juga bisa pilih sesuai selera 😍”
+                        <p>
 
-                        <div>
-
-                            <i class="bi bi-tiktok"></i>
-
-                            <div>
-
-                                <b>
-                                    TikTok
-                                </b>
-
-                                <small>
-                                    @ketansusu_lena
-                                </small>
-
-                            </div>
-
-                        </div>
-
+                        <p>
+                            Terima kasih sudah menikmati
+                            Ketan Susu Lena ❤️
+                        </p>
 
                     </div>
 
@@ -1396,6 +1241,316 @@
 </section>
 
 
+<!-- =====================================================
+     TENTANG KAMI
+===================================================== -->
+
+<section class="about-section" id="tentang">
+
+    <div class="container">
+
+        <div class="section-title about-title reveal">
+
+            <span>TENTANG KAMI</span>
+
+            <h2>
+                Kenalan Dengan
+                <strong>Ketan Susu Lena</strong>
+            </h2>
+
+        </div>
+
+
+        <div class="about-story">
+
+
+           <!-- VIDEO TIKTOK -->
+
+        <div class="about-photo reveal">
+
+            <blockquote
+                class="tiktok-embed"
+                cite="https://www.tiktok.com/@rozzakemana/video/7674140141388041493"
+                data-video-id="7674140141388041493"
+                style="max-width: 605px; min-width: 325px;">
+
+                <section></section>
+
+            </blockquote>
+
+        </div>
+
+
+            <!-- CERITA -->
+
+            <div class="about-story-text reveal">
+
+                <span class="story-label">
+                    CERITA KAMI
+                </span>
+
+                <h2>
+                    Dari Ketan Sederhana
+                    Menjadi Favorit Banyak Orang
+                </h2>
+
+                <p>
+                    Ketan Susu Lena berawal dari sebuah usaha sederhana yang dirintis oleh anak kelas 12.
+                    Usaha ini pertama kali dibuka pada 9 Desember 2025 dan menjadi
+                    salah satu usaha ketan susu pertama di daerah Banyuputih.
+                </p>
+
+                <p>
+                    Pada awalnya, Ketan Susu Lena dijalankan dengan sistem COD dan berjualan di
+                    lingkungan sekolah. Dengan berbagai pilihan varian ketan susu yang dipadukan dengan
+                    fla susu yang creamy dan beragam topping, usaha ini mulai dikenal dan mendapatkan
+                    respons positif dari pelanggan.
+                </p>
+
+                <p>
+                    Seiring berjalannya waktu, Ketan Susu Lena mulai 
+                    open stand di Banyuputih. Dari sana,
+                    usaha ini sempat mendapatkan perhatian 
+                    dan menjadi viral, sehingga semakin banyak
+                    orang mengenal dan mencoba Ketan Susu Lena.
+                    Ketan susu lena menyediakan beberapa toping 
+                    mulai dari coklat lumer, keju, Oreo,
+                    matcha, strawberry, redvelvet hingga
+                    Manggo Signature.
+                </p>
+
+                </p>
+                    Kini, Ketan Susu Lena hadir di Limpung dengan lokasi 
+                    yang menurut kami lebih strategis dan mudah dijangkau.
+                    Perjalanan dari jualan sederhana di sekolah hingga memiliki stand sendiri 
+                    menjadi bagian dari cerita dan perkembangan Ketan Susu Lena.
+
+                    Nikmati ketan yang pulen, gurih, lembut, dan creamy dengan berbagai pilihan topping favoritmu.
+                </p>
+
+
+                <div class="about-points">
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Ketan Pulen & Gurih
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Banyak Pilihan Topping
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Nikmati Sensasi Manis Di Setiap Gigitan
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a href="https://wa.me/6289673193710"
+                   target="_blank"
+                   class="btn-main">
+
+                    <i class="bi bi-whatsapp"></i>
+
+                    Pesan Sekarang
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     LOKASI
+========================= -->
+<section id="lokasi" class="location-section py-5">
+
+    <div class="container">
+
+        <!-- Judul -->
+        <div class="section-title text-center mb-5">
+
+            <span class="badge bg-danger-subtle text-danger mb-2">
+                <i class="bi bi-geo-alt-fill"></i>
+                Lokasi
+            </span>
+
+            <h2 class="fw-bold">
+                Temukan Ketan Susu Lena 📍
+            </h2>
+
+            <p class="text-muted">
+                Kami siap menemani kamu dengan ketan susu yang pulen,
+                gurih, dan berbagai pilihan topping favorit.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4 align-items-stretch">
+
+            <!-- INFORMASI ALAMAT -->
+            <div class="col-lg-5">
+
+                <div class="location-info">
+
+                    <div class="location-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+
+                    <h3>
+                        Ketan Susu Lena
+                    </h3>
+
+                    <p class="location-description">
+                        📍 Temukan Ketan Susu Lena di Limpung, Kabupaten Batang.
+                    </p>
+
+
+                    <!-- Alamat -->
+                    <div class="location-detail">
+
+                        <div class="detail-icon">
+                            <i class="bi bi-house-heart-fill"></i>
+                        </div>
+
+                        <div>
+                            <strong>Alamat</strong>
+
+                            <p>
+                                Jl. Raya Limpung-Banyuputih,Depan Koramil Limpung-Banyuputih,
+                                Kecamatan Limpung,Kabupaten Batang,Jawa Tengah.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Jam -->
+                    <div class="location-detail">
+
+                        <div class="detail-icon">
+                            <i class="bi bi-clock-fill"></i>
+                        </div>
+
+                        <div>
+                            <strong>Jam Operasional</strong>
+
+                            <p>
+                                Senin - Minggu<br>
+                                16.30-21.00
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Kontak -->
+                    <a href="https://wa.me/6289673193710?text=Halo%20Ketan%20Susu%20Lena%2C%20saya%20ingin%20memesan."
+   target="_blank"
+   class="location-detail whatsapp-contact">
+
+    <div class="detail-icon">
+        <i class="bi bi-whatsapp"></i>
+    </div>
+
+    <div>
+        <strong>Hubungi Kami</strong>
+
+        <p>
+            Pesan sekarang melalui WhatsApp.
+        </p>
+    </div>
+
+</a>
+
+                    <!-- Tombol -->
+            <a href="https://maps.app.goo.gl/bLdtTTooTk3uWAW96"
+                    target="_blank"
+                    class="location-map-btn">
+
+                    <i class="bi bi-map-fill"></i>
+
+                         Lihat Lokasi di Google Maps
+
+            </a>
+
+
+            <!-- MAP -->
+            <div class="col-lg-7">
+
+                <div class="location-map">
+
+                    <div class="map-placeholder">
+
+                        <div class="map-decoration map-decoration-1"></div>
+                        <div class="map-decoration map-decoration-2"></div>
+
+                        <div class="map-content">
+
+    <div class="map-pin">
+
+        <i class="bi bi-geo-alt-fill"></i>
+
+    </div>
+
+    <h3>
+        Lokasi Ketan Susu Lena
+    </h3>
+
+    <p>
+        Jl. Raya Limpung-Banyuputih,
+        Depan Koramil Limpung-Banyuputih,
+        Kecamatan Limpung, Kabupaten Batang,
+        Jawa Tengah.
+    </p>
+
+    <a href="https://maps.app.goo.gl/bLdtTTooTk3uWAW96"
+       target="_blank"
+       class="location-map-btn">
+
+        <i class="bi bi-map-fill"></i>
+        Buka Google Maps
+
+    </a>
+
+</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- =====================================================
      FOOTER
@@ -1409,34 +1564,53 @@
 
             <div>
 
-                <strong class="footer-logo">
-
-                    🍚 Ketan Susu Lena
-
-                </strong>
+                <h3>KETAN SUSU LENA</h3>
 
                 <p>
-                    Lezatnya bikin nagih 💗
+                    Ngga semua yang manis itu kenangan......
                 </p>
+            <div class="halal-logo">
+                <img src="images/logo-halal.png" alt="Logo Halal Indonesia">
+            </div>
 
             </div>
 
 
             <div class="social">
 
-                <a
-                    href="https://wa.me/6289673193710"
-                    target="_blank"
-                >
+                <!-- WHATSAPP -->
+
+                <a href="https://wa.me/6289673193710"
+                   target="_blank"
+                   rel="noopener"
+                   title="WhatsApp Ketan Susu Lena">
+
                     <i class="bi bi-whatsapp"></i>
+
                 </a>
 
-                <a href="#">
+
+                <!-- INSTAGRAM -->
+
+                <a href="https://www.instagram.com/ketansusu_lena/"
+                   target="_blank"
+                   rel="noopener"
+                   title="Instagram Ketan Susu Lena">
+
                     <i class="bi bi-instagram"></i>
+
                 </a>
 
-                <a href="#">
+
+                <!-- TIKTOK -->
+
+                <a href="https://www.tiktok.com/@ketansusu_lena"
+                   target="_blank"
+                   rel="noopener"
+                   title="TikTok Ketan Susu Lena">
+
                     <i class="bi bi-tiktok"></i>
+
                 </a>
 
             </div>
@@ -1446,8 +1620,7 @@
 
         <div class="copyright">
 
-            © 2026 Ketan Susu Lena.
-            All Rights Reserved.
+            © 2025 Ketan Susu Lena. All Rights Reserved.
 
         </div>
 
@@ -1456,36 +1629,32 @@
 </footer>
 
 
-
 <!-- =====================================================
-     MODAL KERANJANG
+     CART MODAL
 ===================================================== -->
 
-<div
-    class="modal fade"
-    id="cartModal"
-    tabindex="-1"
->
+<div class="modal fade"
+     id="cartModal"
+     tabindex="-1">
 
     <div class="modal-dialog modal-dialog-centered">
 
         <div class="modal-content cart-modal">
 
-
             <div class="modal-header">
 
                 <h5 class="modal-title">
 
-                    🛒 Keranjang Saya
+                    <i class="bi bi-bag-heart-fill"></i>
+
+                    Keranjang Saya
 
                 </h5>
 
-
-                <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                ></button>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
 
             </div>
 
@@ -1494,24 +1663,30 @@
 
                 <div id="cartItems"></div>
 
-
                 <div class="cart-total">
 
-                    <b>
-                        Total
-                    </b>
+                    <span>Total</span>
 
-                    <b id="cartTotal">
+                    <strong id="cartTotal">
                         Rp0
-                    </b>
+                    </strong>
 
                 </div>
 
+            </div>
 
-                <button
-                    class="btn-main w-100 border-0"
-                    onclick="checkoutWhatsApp()"
-                >
+
+            <div class="modal-footer">
+
+                <button class="btn-clear"
+                        onclick="kosongkanKeranjang()">
+
+                    Kosongkan
+
+                </button>
+
+                <button class="btn-checkout"
+                        onclick="checkoutWhatsApp()">
 
                     <i class="bi bi-whatsapp"></i>
 
@@ -1528,21 +1703,11 @@
 </div>
 
 
-
-<!-- =====================================================
-     BOOTSTRAP JS
-===================================================== -->
-
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-></script>
-
-
-<!-- JAVASCRIPT KITA -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="script.js"></script>
 
+<script async src="https://www.tiktok.com/embed.js"></script>
 
 </body>
-
 </html>
