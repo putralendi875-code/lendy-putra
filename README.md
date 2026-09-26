@@ -1,2 +1,2 @@
-# lendy-putra
+# KETANSUSULENA
 lendy tidak bisa koding
